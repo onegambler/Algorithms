@@ -4,9 +4,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
 
-public class BubbleSortTest {
+public class MergeSortTest {
 
-    private BubbleSort sort = new BubbleSort();
+    private MergeSort sort = new MergeSort();
 
     @Test
     public void shouldSortAnArray() {
