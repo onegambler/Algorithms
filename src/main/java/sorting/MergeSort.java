@@ -9,15 +9,13 @@ public class MergeSort {
     }
 
     private void mergeSort(int[] array, int[] helper, int low, int high) {
-        // check if low is smaller then high, if not then the array is sorted
+        // if low is not smaller than high index, then array is already sorted
         if (low < high) {
-            // Get the index of the element which is in the middle
             int middle = low + (high - low) / 2;
-            // Sort the left side of the array
+            //divide
             mergeSort(array, helper, low, middle);
-            // Sort the right side of the array
             mergeSort(array, helper, middle + 1, high);
-            // Combine them both
+            //merge back
             merge(array, helper, low, middle, high);
         }
     }
