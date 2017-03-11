@@ -16,14 +16,12 @@ public class HasSubstring {
         for (int i = 0; i < inputStringChars.length; ) {
             if (inputStringChars[i] == supposedSubstringChars[0]) {
                 boolean found = true;
-                int matchingIndex = i;
-                for (char supposedSubstringChar : supposedSubstringChars) {
-                    if (inputStringChars[matchingIndex] != supposedSubstringChar) {
+                for (int j = 0; j < supposedSubstringChars.length; j++) {
+                    if (inputStringChars[i + j] != supposedSubstringChars[j]) {
                         found = false;
                         i++;
                         break;
                     }
-                    matchingIndex++;
                 }
                 if (found) {
                     return true;
