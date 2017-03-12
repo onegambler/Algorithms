@@ -1,7 +1,7 @@
-package array;
+package data.structure.array;
 
 /**
- * Given value T, find the index of the first number in a sorted array greater than T.
+ * Given value T, find the index of the first number in a sorted data.structure.array greater than T.
  *
  * Assume there are no duplicate numbers.
  */

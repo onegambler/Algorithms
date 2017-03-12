@@ -9,7 +9,7 @@ public class MergeSort {
     }
 
     private void mergeSort(int[] array, int[] helper, int low, int high) {
-        // if low is not smaller than high index, then array is already sorted
+        // if low is not smaller than high index, then data.structure.array is already sorted
         if (low < high) {
             int middle = low + (high - low) / 2;
             //divide
@@ -22,7 +22,7 @@ public class MergeSort {
 
     private void merge(int[] array, int[] helper, int low, int middle, int high) {
 
-        // Copy sub array elements into the helper array
+        // Copy sub data.structure.array elements into the helper data.structure.array
         for (int i = low; i <= high; i++) {
             helper[i] = array[i];
         }
@@ -31,7 +31,7 @@ public class MergeSort {
         int j = middle + 1;
         int k = low;
         // Copy values from either the left or the right side back
-        // to the original array in ascending order (e.g. smaller values first).
+        // to the original data.structure.array in ascending order (e.g. smaller values first).
         while (i <= middle && j <= high) {
             if (helper[i] <= helper[j]) {
                 array[k] = helper[i];
@@ -42,7 +42,7 @@ public class MergeSort {
             }
             k++;
         }
-        // Copy the rest of the left side of the helper array into the original one
+        // Copy the rest of the left side of the helper data.structure.array into the original one
         while (i <= middle) {
             array[k] = helper[i];
             k++;

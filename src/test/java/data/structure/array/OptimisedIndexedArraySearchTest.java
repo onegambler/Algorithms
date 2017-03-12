@@ -1,4 +1,4 @@
-package array;
+package data.structure.array;
 
 import org.junit.Test;
 
