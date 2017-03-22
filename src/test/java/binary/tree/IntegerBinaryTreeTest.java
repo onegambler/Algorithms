@@ -9,12 +9,12 @@ import static org.junit.Assert.assertTrue;
 
 public class IntegerBinaryTreeTest {
 
-    private BinaryTreeGenerator<Integer> btGenerator = new BinaryTreeGenerator<Integer>();
+    private BinaryTreeGenerator<Integer> btGenerator = new BinaryTreeGenerator<>();
     private IntegerBinaryTree integerBinaryTree = new IntegerBinaryTree();
 
     @Test
     public void whenBinaryTreeIsValidThenReturnTrue() {
-        Node<Integer> tree = btGenerator.generateBinaryTree(6, new Integer[]{1, 5, 7, 9});
+        Node<Integer> tree = btGenerator.generateBinaryTree(new Integer[]{1, 6, 5, 7, 9});
         boolean valid = integerBinaryTree.isValid(tree);
         assertTrue(valid);
     }
@@ -22,7 +22,7 @@ public class IntegerBinaryTreeTest {
 
     @Test
     public void whenBinaryTreeIsNotValidThenReturnFalse() {
-        Node<Integer> tree = btGenerator.generateBinaryTree(6, new Integer[]{1, 5, 7, 9});
+        Node<Integer> tree = btGenerator.generateBinaryTree(new Integer[]{1, 6, 5, 7, 9});
         tree.getLeftNode().setValue(100);
         boolean valid = integerBinaryTree.isValid(tree);
         assertFalse(valid);

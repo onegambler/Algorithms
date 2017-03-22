@@ -2,35 +2,33 @@ package binary.tree.util;
 
 import util.Node;
 
+import java.util.Arrays;
+
 public class BinaryTreeGenerator<T extends Comparable<T>> {
 
-    public Node<T> generateBinaryTree(T rootNodeValue, T[] values) {
-        Node<T> rootNode = new Node<T>();
-        rootNode.setValue(rootNodeValue);
-        for (T value : values) {
-            addValueToTree(value, rootNode);
+    public Node<T> generateBinaryTree(T[] values) {
+        if (values == null || values.length == 0) {
+            return null;
         }
-
-        return rootNode;
+        Arrays.sort(values);
+        return createNode(values, 0, values.length - 1);
     }
 
-    private void addValueToTree(T value, Node<T> tree) {
-        if (tree.getValue().compareTo(value) >= 1) {
-            if (tree.getLeftNode() == null) {
-                tree.setLeftNode(new Node<T>());
-                tree.getLeftNode().setValue(value);
-            } else {
-                addValueToTree(value, tree.getLeftNode());
-            }
-        } else if (tree.getValue().compareTo(value) <= -1) {
-            if (tree.getRightNode() == null) {
-                tree.setRightNode(new Node<T>());
-                tree.getRightNode().setValue(value);
-            } else {
-                addValueToTree(value, tree.getRightNode());
-            }
-        } else {
-            throw new RuntimeException("Duplicate value" + value);
+    private Node<T> createNode(T values[], int start, int end) {
+
+        if (start > end) {
+            return null;
         }
+
+        int mid = (int) (Math.floor(start + end) / 2);
+        Node<T> node = new Node<>();
+
+        node.setValue(values[mid]);
+
+        node.setLeftNode(createNode(values, start, mid - 1));
+
+        node.setRightNode(createNode(values, mid + 1, end));
+
+        return node;
     }
 }
