@@ -1,5 +1,9 @@
 package sorting;
 
+/**
+ *
+ */
+
 public class MergeSort {
 
     public int[] sort(int[] array) {
@@ -22,7 +26,7 @@ public class MergeSort {
 
     private void merge(int[] array, int[] helper, int low, int middle, int high) {
 
-        // Copy sub data.structure.array elements into the helper data.structure.array
+        // Copy sub array elements into the helper array
         for (int i = low; i <= high; i++) {
             helper[i] = array[i];
         }
@@ -31,7 +35,7 @@ public class MergeSort {
         int j = middle + 1;
         int k = low;
         // Copy values from either the left or the right side back
-        // to the original data.structure.array in ascending order (e.g. smaller values first).
+        // to the original array in ascending order (e.g. smaller values first).
         while (i <= middle && j <= high) {
             if (helper[i] <= helper[j]) {
                 array[k] = helper[i];

@@ -1,5 +1,7 @@
 package sorting;
 
+import java.util.Arrays;
+
 /**
  * Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time.
  * It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.
@@ -19,14 +21,14 @@ package sorting;
  * For each iteration, the number of positions the inserted element has moved is shown in brackets.
  * Altogether this amounts to 17 steps.
  *
- *   [5] 7	0	3	4	2	6	1	 	(0)
- *   [5  7]	0	3	4	2	6	1	 	(0)
- *   [0	 5	7]	3	4	2	6	1	 	(2)
- *   [0	 3	5	7]	4	2	6	1	 	(2)
- *   [0	3	4	5	7]	2	6	1	 	(2)
- *   [0	2	3	4	5	7]	6	1	 	(4)
- *   [0	2	3	4	5	6	7]	1	 	(1)
- *   [0	1	2	3	4	5	6	7]	 	(6)
+ * [5] 7	0	3	4	2	6	1	 	(0)
+ * [5  7]	0	3	4	2	6	1	 	(0)
+ * [0	 5	7]	3	4	2	6	1	 	(2)
+ * [0	 3	5	7]	4	2	6	1	 	(2)
+ * [0	3	4	5	7]	2	6	1	 	(2)
+ * [0	2	3	4	5	7]	6	1	 	(4)
+ * [0	2	3	4	5	6	7]	1	 	(1)
+ * [0	1	2	3	4	5	6	7]	 	(6)
  *
  * <a href="https://www.tutorialspoint.com/data_structures_algorithms/insertion_sort_algorithm.htm">Link</a>
  */
@@ -36,15 +38,20 @@ public class InsertionSort {
 
         for (int i = 1; i < array.length; i++) {
             int j = i;
-            int temp;
             while (j > 0 && array[j] < array[j - 1]) {
-                temp = array[j];
-                array[j] = array[j - 1];
-                array[j - 1] = temp;
+                swap(array, j);
                 j--;
+                System.out.println(Arrays.toString(array));
             }
         }
 
         return array;
+    }
+
+    private void swap(int[] array, int j) {
+        int temp;
+        temp = array[j];
+        array[j] = array[j - 1];
+        array[j - 1] = temp;
     }
 }
