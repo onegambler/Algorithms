@@ -1,5 +1,7 @@
 package sorting;
 
+import static java.lang.System.arraycopy;
+
 /**
  *
  */
@@ -27,9 +29,7 @@ public class MergeSort {
     private void merge(int[] array, int[] helper, int low, int middle, int high) {
 
         // Copy sub array elements into the helper array
-        for (int i = low; i <= high; i++) {
-            helper[i] = array[i];
-        }
+        arraycopy(array, low, helper, low, high - low + 1);
 
         int i = low;
         int j = middle + 1;
@@ -52,6 +52,5 @@ public class MergeSort {
             k++;
             i++;
         }
-
     }
 }

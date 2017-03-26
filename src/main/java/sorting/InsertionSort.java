@@ -1,7 +1,5 @@
 package sorting;
 
-import java.util.Arrays;
-
 /**
  * Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time.
  * It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.
@@ -41,7 +39,6 @@ public class InsertionSort {
             while (j > 0 && array[j] < array[j - 1]) {
                 swap(array, j);
                 j--;
-                System.out.println(Arrays.toString(array));
             }
         }
 

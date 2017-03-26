@@ -10,8 +10,8 @@ import java.util.Stack;
  */
 public class TwoStacksQueue<E> extends AbstractQueue<E> {
 
-    private Stack<E> firstStack = new Stack<E>();
-    private Stack<E> secondStack = new Stack<E>();
+    private Stack<E> firstStack = new Stack<>();
+    private Stack<E> secondStack = new Stack<>();
 
     public Iterator<E> iterator() {
         return null;
