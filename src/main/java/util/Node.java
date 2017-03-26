@@ -1,8 +1,8 @@
 package util;
 
 public class Node<T extends Comparable<T>> {
-    private Node leftNode;
-    private Node rightNode;
+    private Node<T> leftNode;
+    private Node<T> rightNode;
     private T value;
 
     public Node<T> getLeftNode() {

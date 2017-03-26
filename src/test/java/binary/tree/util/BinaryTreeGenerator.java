@@ -20,7 +20,7 @@ public class BinaryTreeGenerator<T extends Comparable<T>> {
             return null;
         }
 
-        int mid = (int) (Math.floor(start + end) / 2);
+        int mid = (int) Math.floor((start + end) / 2);
         Node<T> node = new Node<>();
 
         node.setValue(values[mid]);
