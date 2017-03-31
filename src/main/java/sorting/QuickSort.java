@@ -2,29 +2,30 @@ package sorting;
 
 public class QuickSort {
 
-    public void sort(int[] array) {
-        quickSort(array, 0, array.length);
+    public int[] sort(int[] array) {
+        quickSort(array, 0, array.length - 1);
+        return array;
     }
 
     private void quickSort(int arr[], int low, int high) {
-        int index = partition(arr, low, high);
-        if (low < index)
-            quickSort(arr, low, index);
-        if (index < high)
-            quickSort(arr, index + 1, high);
-    }
+        if (low >= high)
+            return;
 
-    private int partition(int arr[], int left, int right) {
-        int i = left;
-        int j = right;
+        // pick the pivot
+        int middle = low + (high - low) / 2;
+        int pivot = arr[middle];
 
-        int pivot = (left + right) / 2;
-
+        // make left < pivot and right > pivot
+        int i = low, j = high;
         while (i <= j) {
-            while (arr[i] < arr[pivot])
+            while (arr[i] < pivot) {
                 i++;
-            while (arr[j] > arr[pivot])
+            }
+
+            while (arr[j] > pivot) {
                 j--;
+            }
+
             if (i <= j) {
                 swap(arr, i, j);
                 i++;
@@ -32,8 +33,14 @@ public class QuickSort {
             }
         }
 
-        return i;
+        // recursively sort two sub parts
+        if (low < j)
+            quickSort(arr, low, j);
+
+        if (high > i)
+            quickSort(arr, i, high);
     }
+
 
     private void swap(int[] arr, int i, int j) {
         int tmp;

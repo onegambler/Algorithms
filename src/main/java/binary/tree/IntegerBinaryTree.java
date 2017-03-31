@@ -33,4 +33,25 @@ public class IntegerBinaryTree {
         return checkNode(node.getLeftNode(), min, node.getValue())
                 && checkNode(node.getRightNode(), node.getValue(), max);
     }
+
+    public int find(int[] sortedArray, int x) {
+        return findRecursive(sortedArray, 0, sortedArray.length - 1, x);
+    }
+
+    private int findRecursive(int[] sortedArray, int min, int max, int x) {
+        if (min < max) {
+            int middle = max + min / 2;
+            if (x == sortedArray[middle]) {
+                return middle;
+            }
+
+            if (x < sortedArray[middle]) {
+                return findRecursive(sortedArray, 0, middle - 1, x);
+            } else {
+                return findRecursive(sortedArray, middle + 1, max, x);
+            }
+        }
+
+        return -1;
+    }
 }

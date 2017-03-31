@@ -5,6 +5,13 @@ public class Node<T extends Comparable<T>> {
     private Node<T> rightNode;
     private T value;
 
+    public Node() {
+    }
+
+    public Node(T t) {
+        this.value = t;
+    }
+
     public Node<T> getLeftNode() {
         return leftNode;
     }
