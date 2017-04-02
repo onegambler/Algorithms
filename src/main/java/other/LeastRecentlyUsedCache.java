@@ -3,12 +3,12 @@ package other;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LeastRecentlyUsedCache<T, K> {
+public class LeastRecentlyUsedCache<K, T> {
 
     private final int capacity;
     private int size;
-    private Node<T> head = new Node<>();
-    private Node<T> tail = new Node<>();
+    private Node<K, T> head = new Node<>();
+    private Node<K, T> tail = new Node<>();
     private Map<K, T> map = new HashMap<>();
 
     public LeastRecentlyUsedCache(int capacity) {
@@ -20,29 +20,30 @@ public class LeastRecentlyUsedCache<T, K> {
 
     public T get(K key) {
         if (map.containsKey(key)) {
-            T t = map.get(key);
-            removeNode(t);
-            addToHead(t);
-            return t;
+            T value = map.get(key);
+            removeNode(value);
+            addToHead(key, value);
+            return value;
         }
         return null;
     }
 
     public void add(K key, T value) {
         if (size == capacity) {
-            removeLast(key);
+            removeLast(tail.previous.key);
         }
-        addToHead(value);
+        addToHead(key, value);
         map.put(key, value);
     }
 
-    private void addToHead(T value) {
-        Node lastNode = tail.previous;
-        Node newNode = new Node();
+    private void addToHead(K key, T value) {
+        Node<K, T> newNode = new Node<>();
         newNode.value = value;
-        lastNode.next = newNode;
-        newNode.previous = lastNode;
-        newNode.next = tail;
+        newNode.key = key;
+        head.next.previous = newNode;
+        newNode.next = head.next;
+        newNode.previous = head;
+        head.next = newNode;
         size++;
     }
 
@@ -53,7 +54,7 @@ public class LeastRecentlyUsedCache<T, K> {
     }
 
     private void removeNode(T value) {
-        Node<T> current = head;
+        Node<K, T> current = head;
         while (current != null) {
             if (current.value == value) {
                 current.previous.next = current.next;
@@ -65,10 +66,11 @@ public class LeastRecentlyUsedCache<T, K> {
     }
 
 
-    private static class Node<J> {
-        private Node<J> previous;
-        private Node<J> next;
+    private static class Node<P, J> {
+        private Node<P, J> previous;
+        private Node<P, J> next;
         private J value;
+        private P key;
     }
 
 }
