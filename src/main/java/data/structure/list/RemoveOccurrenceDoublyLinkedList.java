@@ -1,7 +1,7 @@
 package data.structure.list;
 
 /**
- * Write a   function  to  remove  a  single  occurrence  of  an  integer  from  a  doubly  linked  list  if  it  is  present.
+ * Write  a   function  to  remove  a  single  occurrence  of  an  integer  from  a  doubly  linked  list  if  it  is  present.
  */
 public class RemoveOccurrenceDoublyLinkedList {
 
