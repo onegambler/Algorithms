@@ -19,4 +19,16 @@ public class McNuggetsProblemTest {
         assertThat(mcNuggetsProblem.solveForNumber(43)).isFalse();
         assertThat(mcNuggetsProblem.solveForNumber(100)).isTrue();
     }
+
+    @Test
+    public void shouldReturnCorrectValueWithDynamicProgramming() {
+        assertThat(mcNuggetsProblem.solveForNumberDynamicProgramming(5)).isFalse();
+        assertThat(mcNuggetsProblem.solveForNumberDynamicProgramming(6)).isTrue();
+        assertThat(mcNuggetsProblem.solveForNumberDynamicProgramming(7)).isFalse();
+        assertThat(mcNuggetsProblem.solveForNumberDynamicProgramming(12)).isTrue();
+        assertThat(mcNuggetsProblem.solveForNumberDynamicProgramming(21)).isTrue();
+        assertThat(mcNuggetsProblem.solveForNumberDynamicProgramming(23)).isFalse();
+        assertThat(mcNuggetsProblem.solveForNumberDynamicProgramming(43)).isFalse();
+        assertThat(mcNuggetsProblem.solveForNumberDynamicProgramming(100)).isTrue();
+    }
 }

@@ -14,6 +14,10 @@ package other;
  */
 public class McNuggetsProblem {
 
+    /**
+     *
+     * O(
+     */
     public boolean solveForNumber(int withK) {
         return canDo(withK);
     }
@@ -33,5 +37,26 @@ public class McNuggetsProblem {
         int withTwenty = remaining - 20;
 
         return canDo(withSix) || canDo(withNine) || canDo(withTwenty);
+    }
+
+    /**
+     * O(n^2)
+     */
+    public boolean solveForNumberDynamicProgramming(int withK) {
+
+        int[] helper = new int[withK + 1];
+        helper[0] = 1;
+
+        for (int i = 1; i <= withK; i++) {
+            for (int j = 0; j < withK; j++) {
+                if (helper[j] == 1 && helper[i] == 0) {
+                    if (j + 6 == i || j + 9 == i || j + 20 == i) {
+                        helper[i] = 1;
+                    }
+                }
+            }
+        }
+
+        return helper[withK] == 1;
     }
 }
