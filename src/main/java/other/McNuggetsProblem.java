@@ -40,7 +40,7 @@ public class McNuggetsProblem {
     }
 
     /**
-     * O(n^2)
+     * O(n*k)
      */
     public boolean solveForNumberDynamicProgramming(int withK) {
 
