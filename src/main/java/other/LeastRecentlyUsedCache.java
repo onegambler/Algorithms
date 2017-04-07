@@ -6,10 +6,9 @@ import java.util.Map;
 public class LeastRecentlyUsedCache<K, T> {
 
     private final int capacity;
-    private int size;
     private Node<K, T> head = new Node<>();
     private Node<K, T> tail = new Node<>();
-    private Map<K, T> map = new HashMap<>();
+    private Map<K, Node<K, T>> map = new HashMap<>();
 
     public LeastRecentlyUsedCache(int capacity) {
         this.capacity = capacity;
@@ -17,34 +16,32 @@ public class LeastRecentlyUsedCache<K, T> {
         tail.previous = head;
     }
 
-
     public T get(K key) {
         if (map.containsKey(key)) {
-            T value = map.get(key);
-            removeNode(value);
-            addToHead(key, value);
-            return value;
+            Node<K, T> node = map.get(key);
+            removeNode(node);
+            addToHead(node);
+            return node.value;
         }
         return null;
     }
 
     public void add(K key, T value) {
-        if (size == capacity) {
+        if (map.size() == capacity) {
             removeLast(tail.previous.key);
         }
-        addToHead(key, value);
-        map.put(key, value);
-    }
-
-    private void addToHead(K key, T value) {
         Node<K, T> newNode = new Node<>();
         newNode.value = value;
         newNode.key = key;
-        head.next.previous = newNode;
-        newNode.next = head.next;
-        newNode.previous = head;
-        head.next = newNode;
-        size++;
+        addToHead(newNode);
+        map.put(key, newNode);
+    }
+
+    private void addToHead(Node<K, T> node) {
+        head.next.previous = node;
+        node.next = head.next;
+        node.previous = head;
+        head.next = node;
     }
 
     private void removeLast(K key) {
@@ -53,16 +50,9 @@ public class LeastRecentlyUsedCache<K, T> {
         map.remove(key);
     }
 
-    private void removeNode(T value) {
-        Node<K, T> current = head;
-        while (current != null) {
-            if (current.value == value) {
-                current.previous.next = current.next;
-                current.next = current.next.next;
-                break;
-            }
-            current = current.next;
-        }
+    private void removeNode(Node<K, T> node) {
+        node.previous.next = node.next;
+        node.next.previous = node.previous;
     }
 
 
