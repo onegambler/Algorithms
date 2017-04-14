@@ -1,50 +1,50 @@
 package binary.tree;
 
-import util.Node;
+import util.TreeNode;
 
 import java.util.Stack;
 
 public class BinaryTreeTraversal {
 
-    public <T extends Comparable<T>> void inOrderTraversalRecursive(Node<T> node) {
-        if (node == null) return;
-        inOrderTraversalRecursive(node.getLeftNode());
-        visit(node);
-        inOrderTraversalRecursive(node.getRightNode());
+    public <T extends Comparable<T>> void inOrderTraversalRecursive(TreeNode<T> treeNode) {
+        if (treeNode == null) return;
+        inOrderTraversalRecursive(treeNode.getLeftTreeNode());
+        visit(treeNode);
+        inOrderTraversalRecursive(treeNode.getRightTreeNode());
     }
 
-    public <T extends Comparable<T>> void inOrderTraversalIterative(Node<T> node) {
-        Stack<Node<T>> stack = new Stack<>();
-        Node<T> current = node;
+    public <T extends Comparable<T>> void inOrderTraversalIterative(TreeNode<T> treeNode) {
+        Stack<TreeNode<T>> stack = new Stack<>();
+        TreeNode<T> current = treeNode;
 
 
         while(!stack.isEmpty() || current != null) {
             while(current != null) {
                 stack.push(current);
-                current = current.getLeftNode();
+                current = current.getLeftTreeNode();
             }
 
             current = stack.pop();
             visit(current);
-            current = current.getRightNode();
+            current = current.getRightTreeNode();
         }
     }
 
-    public <T extends Comparable<T>> void preOrderTraversal(Node<T> node) {
-        if (node == null) return;
-        visit(node);
-        preOrderTraversal(node.getLeftNode());
-        preOrderTraversal(node.getRightNode());
+    public <T extends Comparable<T>> void preOrderTraversal(TreeNode<T> treeNode) {
+        if (treeNode == null) return;
+        visit(treeNode);
+        preOrderTraversal(treeNode.getLeftTreeNode());
+        preOrderTraversal(treeNode.getRightTreeNode());
     }
 
-    public <T extends Comparable<T>> void postOrderTraversal(Node<T> node) {
-        if (node == null) return;
-        postOrderTraversal(node.getLeftNode());
-        postOrderTraversal(node.getRightNode());
-        visit(node);
+    public <T extends Comparable<T>> void postOrderTraversal(TreeNode<T> treeNode) {
+        if (treeNode == null) return;
+        postOrderTraversal(treeNode.getLeftTreeNode());
+        postOrderTraversal(treeNode.getRightTreeNode());
+        visit(treeNode);
     }
 
-    private <T extends Comparable<T>> void visit(Node<T> node) {
-        System.out.print(node.getValue() + " ");
+    private <T extends Comparable<T>> void visit(TreeNode<T> treeNode) {
+        System.out.print(treeNode.getValue() + " ");
     }
 }

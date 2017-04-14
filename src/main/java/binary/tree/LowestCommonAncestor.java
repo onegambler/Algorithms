@@ -1,10 +1,10 @@
 package binary.tree;
 
-import util.Node;
+import util.TreeNode;
 
 public class LowestCommonAncestor {
 
-    public <T extends Comparable<T>> Node<T> lowestCommonAncestorBinaryTree(Node<T> root, Node<T> p, Node<T> q) {
+    public <T extends Comparable<T>> TreeNode<T> lowestCommonAncestorBinaryTree(TreeNode<T> root, TreeNode<T> p, TreeNode<T> q) {
 
         if (root == null) {
             return null;
@@ -14,8 +14,8 @@ public class LowestCommonAncestor {
             return root;
         }
 
-        Node<T> left = lowestCommonAncestorBinaryTree(root.getLeftNode(), p, q);
-        Node<T> right = lowestCommonAncestorBinaryTree(root.getRightNode(), p, q);
+        TreeNode<T> left = lowestCommonAncestorBinaryTree(root.getLeftTreeNode(), p, q);
+        TreeNode<T> right = lowestCommonAncestorBinaryTree(root.getRightTreeNode(), p, q);
 
         if (left != null && right != null) {
             return root;
@@ -24,18 +24,18 @@ public class LowestCommonAncestor {
         return left == null ? right : left;
     }
 
-    public <T extends Comparable<T>> Node<T> lowestCommonAncestorSBT(Node<T> root, Node<T> p, Node<T> q) {
+    public <T extends Comparable<T>> TreeNode<T> lowestCommonAncestorSBT(TreeNode<T> root, TreeNode<T> p, TreeNode<T> q) {
 
         if (root == null) {
             return null;
         }
 
         if (p.getValue().compareTo(root.getValue()) > 0 && q.getValue().compareTo(root.getValue()) > 0) {
-            return lowestCommonAncestorSBT(root.getLeftNode(), p, q);
+            return lowestCommonAncestorSBT(root.getLeftTreeNode(), p, q);
         }
 
         if (p.getValue().compareTo(root.getValue()) < 0 && q.getValue().compareTo(root.getValue()) < 0) {
-            return lowestCommonAncestorSBT(root.getRightNode(), p, q);
+            return lowestCommonAncestorSBT(root.getRightTreeNode(), p, q);
         }
 
         return root;

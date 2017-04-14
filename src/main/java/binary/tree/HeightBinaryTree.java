@@ -1,50 +1,50 @@
 package binary.tree;
 
-import util.Node;
+import util.TreeNode;
 
 public class HeightBinaryTree {
 
-    public <T extends Comparable<T>> boolean isBalanced(Node<T> root) {
+    public <T extends Comparable<T>> boolean isBalanced(TreeNode<T> root) {
         if (root == null) return true;
-        int lh = getMaxHeightRecursive(root.getLeftNode());
-        int rh = getMaxHeightRecursive(root.getRightNode());
-        return isBalanced(root.getLeftNode())
-                && isBalanced(root.getRightNode())
+        int lh = getMaxHeightRecursive(root.getLeftTreeNode());
+        int rh = getMaxHeightRecursive(root.getRightTreeNode());
+        return isBalanced(root.getLeftTreeNode())
+                && isBalanced(root.getRightTreeNode())
                 && Math.abs(lh - rh) <= 1;
     }
 
-    public <T extends Comparable<T>> int getMinHeightRecursive(Node<T> node) {
-        if (node == null) {
+    public <T extends Comparable<T>> int getMinHeightRecursive(TreeNode<T> treeNode) {
+        if (treeNode == null) {
             return 0;
         }
 
-        if (isLeafNode(node)) {
+        if (isLeafNode(treeNode)) {
             return 1;
         }
 
-        int left = getMinHeightRecursive(node.getLeftNode());
-        int right = getMinHeightRecursive(node.getRightNode());
+        int left = getMinHeightRecursive(treeNode.getLeftTreeNode());
+        int right = getMinHeightRecursive(treeNode.getRightTreeNode());
 
         return 1 + Math.min(left, right);
     }
 
-    public <T extends Comparable<T>> int getMaxHeightRecursive(Node<T> node) {
-        if (node == null) {
+    public <T extends Comparable<T>> int getMaxHeightRecursive(TreeNode<T> treeNode) {
+        if (treeNode == null) {
             return 0;
         }
 
-        if (isLeafNode(node)) {
+        if (isLeafNode(treeNode)) {
             return 1;
         }
 
-        int left = getMaxHeightRecursive(node.getLeftNode());
+        int left = getMaxHeightRecursive(treeNode.getLeftTreeNode());
         ;
-        int right = getMaxHeightRecursive(node.getRightNode());
+        int right = getMaxHeightRecursive(treeNode.getRightTreeNode());
 
         return 1 + Math.max(left, right);
     }
 
-    private <T extends Comparable<T>> boolean isLeafNode(Node<T> node) {
-        return node.getRightNode() == null || node.getLeftNode() == null;
+    private <T extends Comparable<T>> boolean isLeafNode(TreeNode<T> treeNode) {
+        return treeNode.getRightTreeNode() == null || treeNode.getLeftTreeNode() == null;
     }
 }

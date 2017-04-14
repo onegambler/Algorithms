@@ -2,7 +2,7 @@ package binary.tree;
 
 import binary.tree.util.BinaryTreeGenerator;
 import org.junit.Test;
-import util.Node;
+import util.TreeNode;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertFalse;
@@ -16,7 +16,7 @@ public class IntegerBinaryTreeTest {
 
     @Test
     public void whenBinaryTreeIsValidThenReturnTrue() {
-        Node<Integer> tree = btGenerator.generateBinaryTree(new Integer[]{1, 6, 5, 7, 9});
+        TreeNode<Integer> tree = btGenerator.generateBinaryTree(new Integer[]{1, 6, 5, 7, 9});
         boolean valid = integerBinaryTree.isValid(tree);
         assertTrue(valid);
     }
@@ -24,8 +24,8 @@ public class IntegerBinaryTreeTest {
 
     @Test
     public void whenBinaryTreeIsNotValidThenReturnFalse() {
-        Node<Integer> tree = btGenerator.generateBinaryTree(new Integer[]{1, 6, 5, 7, 9});
-        tree.getLeftNode().setValue(100);
+        TreeNode<Integer> tree = btGenerator.generateBinaryTree(new Integer[]{1, 6, 5, 7, 9});
+        tree.getLeftTreeNode().setValue(100);
         boolean valid = integerBinaryTree.isValid(tree);
         assertFalse(valid);
     }

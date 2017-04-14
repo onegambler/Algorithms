@@ -1,12 +1,12 @@
 package binary.tree.util;
 
-import util.Node;
+import util.TreeNode;
 
 import java.util.Arrays;
 
 public class BinaryTreeGenerator<T extends Comparable<T>> {
 
-    public Node<T> generateBinaryTree(T[] values) {
+    public TreeNode<T> generateBinaryTree(T[] values) {
         if (values == null || values.length == 0) {
             return null;
         }
@@ -14,21 +14,21 @@ public class BinaryTreeGenerator<T extends Comparable<T>> {
         return createNode(values, 0, values.length - 1);
     }
 
-    private Node<T> createNode(T values[], int start, int end) {
+    private TreeNode<T> createNode(T values[], int start, int end) {
 
         if (start > end) {
             return null;
         }
 
         int mid = (int) Math.floor((start + end) / 2);
-        Node<T> node = new Node<>();
+        TreeNode<T> treeNode = new TreeNode<>();
 
-        node.setValue(values[mid]);
+        treeNode.setValue(values[mid]);
 
-        node.setLeftNode(createNode(values, start, mid - 1));
+        treeNode.setLeftTreeNode(createNode(values, start, mid - 1));
 
-        node.setRightNode(createNode(values, mid + 1, end));
+        treeNode.setRightTreeNode(createNode(values, mid + 1, end));
 
-        return node;
+        return treeNode;
     }
 }

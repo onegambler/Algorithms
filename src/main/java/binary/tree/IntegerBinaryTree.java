@@ -1,6 +1,6 @@
 package binary.tree;
 
-import util.Node;
+import util.TreeNode;
 
 import static java.lang.Integer.MAX_VALUE;
 import static java.lang.Integer.MIN_VALUE;
@@ -17,21 +17,21 @@ public class IntegerBinaryTree {
     /**
      * Complexity O(n)
      */
-    public boolean isValid(Node<Integer> tree) {
+    public boolean isValid(TreeNode<Integer> tree) {
         return checkNode(tree, MIN_VALUE, MAX_VALUE);
     }
 
-    private boolean checkNode(Node<Integer> node, int min, int max) {
-        if (node == null) {
+    private boolean checkNode(TreeNode<Integer> treeNode, int min, int max) {
+        if (treeNode == null) {
             return true;
         }
 
-        if (node.getValue() < min || node.getValue() > max) {
+        if (treeNode.getValue() < min || treeNode.getValue() > max) {
             return false;
         }
 
-        return checkNode(node.getLeftNode(), min, node.getValue())
-                && checkNode(node.getRightNode(), node.getValue(), max);
+        return checkNode(treeNode.getLeftTreeNode(), min, treeNode.getValue())
+                && checkNode(treeNode.getRightTreeNode(), treeNode.getValue(), max);
     }
 
     public int find(int[] sortedArray, int x) {

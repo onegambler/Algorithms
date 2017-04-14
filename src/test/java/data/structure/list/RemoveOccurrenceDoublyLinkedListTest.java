@@ -1,8 +1,8 @@
 package data.structure.list;
 
 import org.junit.Test;
+import util.ListNode;
 
-import static data.structure.list.RemoveOccurrenceDoublyLinkedList.Node;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -13,7 +13,7 @@ public class RemoveOccurrenceDoublyLinkedListTest {
 
     @Test
     public void whenThereIsNoOccurrenceThenDoNothing() {
-        Node testNode = getTestNode();
+        ListNode testNode = getTestNode();
         remover.remove(4, testNode);
 
         assertNotNull(testNode);
@@ -27,7 +27,7 @@ public class RemoveOccurrenceDoublyLinkedListTest {
 
     @Test
     public void whenThereIsOccurrenceThenRemove() {
-        Node testNode = getTestNode();
+        ListNode testNode = getTestNode();
         remover.remove(8, testNode);
 
         assertNotNull(testNode);
@@ -40,14 +40,14 @@ public class RemoveOccurrenceDoublyLinkedListTest {
 
     }
 
-    private Node getTestNode() {
-        Node node = new Node();
+    private ListNode getTestNode() {
+        ListNode node = new ListNode();
         node.setValue(5);
 
-        node.setNext(new Node());
+        node.setNext(new ListNode());
         node.getNext().setValue(8);
         node.getNext().setPrevious(node);
-        node.getNext().setNext(new Node());
+        node.getNext().setNext(new ListNode());
         node.getNext().getNext().setValue(10);
         node.getNext().getNext().setPrevious(node.getNext());
         return node;

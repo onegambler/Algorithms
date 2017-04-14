@@ -2,7 +2,7 @@ package binary.tree;
 
 import binary.tree.util.BinaryTreeGenerator;
 import org.junit.Test;
-import util.Node;
+import util.TreeNode;
 
 public class BinaryTreeTraversalTest {
 
@@ -12,8 +12,8 @@ public class BinaryTreeTraversalTest {
     public void preOrderWorksAseExpected() {
         BinaryTreeGenerator<Integer> generator = new BinaryTreeGenerator<>();
         System.out.println("Pre Order: ");
-        Node<Integer> rootNode = generator.generateBinaryTree(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
-        traversal.preOrderTraversal(rootNode);
+        TreeNode<Integer> rootTreeNode = generator.generateBinaryTree(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
+        traversal.preOrderTraversal(rootTreeNode);
         System.out.println("\n");
     }
 
@@ -21,8 +21,8 @@ public class BinaryTreeTraversalTest {
     public void inOrderIterativeWorksAseExpected() {
         BinaryTreeGenerator<Integer> generator = new BinaryTreeGenerator<>();
         System.out.println("In Order Iterative: ");
-        Node<Integer> rootNode = generator.generateBinaryTree(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
-        traversal.inOrderTraversalIterative(rootNode);
+        TreeNode<Integer> rootTreeNode = generator.generateBinaryTree(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
+        traversal.inOrderTraversalIterative(rootTreeNode);
         System.out.println("\n");
     }
 
@@ -30,8 +30,8 @@ public class BinaryTreeTraversalTest {
     public void inOrderWorksAseExpected() {
         BinaryTreeGenerator<Integer> generator = new BinaryTreeGenerator<>();
         System.out.println("In Order Recursive: ");
-        Node<Integer> rootNode = generator.generateBinaryTree(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
-        traversal.inOrderTraversalRecursive(rootNode);
+        TreeNode<Integer> rootTreeNode = generator.generateBinaryTree(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
+        traversal.inOrderTraversalRecursive(rootTreeNode);
         System.out.println("\n");
     }
 
@@ -39,8 +39,8 @@ public class BinaryTreeTraversalTest {
     public void postOrderWorksAseExpected() {
         BinaryTreeGenerator<Integer> generator = new BinaryTreeGenerator<>();
         System.out.println("Post Order: ");
-        Node<Integer> rootNode = generator.generateBinaryTree(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
-        traversal.postOrderTraversal(rootNode);
+        TreeNode<Integer> rootTreeNode = generator.generateBinaryTree(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
+        traversal.postOrderTraversal(rootTreeNode);
         System.out.println("\n");
     }
 }
