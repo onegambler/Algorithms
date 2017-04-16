@@ -40,12 +40,12 @@ public class FibonacciSequence {
         map.put(0, 1L);
         map.put(1, 1L);
 
-        for (int i = 2; i < index; i++) {
+        for (int i = 2; i <= index; i++) {
             long oneBefore = map.get(i - 1);
             long twoBefore = map.get(i - 2);
             map.put(i, oneBefore + twoBefore);
         }
 
-        return map.get(index - 1) + map.get(index - 2);
+        return map.get(index);
     }
 }
