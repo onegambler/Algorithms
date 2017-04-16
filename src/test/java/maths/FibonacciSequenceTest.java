@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class FibonacciSequenceTest {
 
-    FibonacciSequence sequence = new FibonacciSequence();
+    private FibonacciSequence sequence = new FibonacciSequence();
 
     @Test
     public void shouldCalculateCorrectValue() {
@@ -21,12 +21,23 @@ public class FibonacciSequenceTest {
 
     @Test
     public void shouldCalculateCorrectValueWithDynamicProgrammingVersion() {
-        assertEquals(1, sequence.getFibonaccyDynamicProgramming(0));
-        assertEquals(1, sequence.getFibonaccyDynamicProgramming(1));
-        assertEquals(2, sequence.getFibonaccyDynamicProgramming(2));
-        assertEquals(3, sequence.getFibonaccyDynamicProgramming(3));
-        assertEquals(5, sequence.getFibonaccyDynamicProgramming(4));
-        assertEquals(8, sequence.getFibonaccyDynamicProgramming(5));
-        assertEquals(13, sequence.getFibonaccyDynamicProgramming(6));
+        assertEquals(1, sequence.getFibonacciDynamicProgramming(0));
+        assertEquals(1, sequence.getFibonacciDynamicProgramming(1));
+        assertEquals(2, sequence.getFibonacciDynamicProgramming(2));
+        assertEquals(3, sequence.getFibonacciDynamicProgramming(3));
+        assertEquals(5, sequence.getFibonacciDynamicProgramming(4));
+        assertEquals(8, sequence.getFibonacciDynamicProgramming(5));
+        assertEquals(13, sequence.getFibonacciDynamicProgramming(6));
+    }
+
+    @Test
+    public void shouldCalculateCorrectValueWithIterativeVersion() {
+        assertEquals(1, sequence.getFibonacciIterative(0));
+        assertEquals(1, sequence.getFibonacciIterative(1));
+        assertEquals(2, sequence.getFibonacciIterative(2));
+        assertEquals(3, sequence.getFibonacciIterative(3));
+        assertEquals(5, sequence.getFibonacciIterative(4));
+        assertEquals(8, sequence.getFibonacciIterative(5));
+        assertEquals(13, sequence.getFibonacciIterative(6));
     }
 }

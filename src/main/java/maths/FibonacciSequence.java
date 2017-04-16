@@ -32,7 +32,7 @@ public class FibonacciSequence {
      *
      * Space Complexity O(n)
      */
-    public long getFibonaccyDynamicProgramming(int index) {
+    public long getFibonacciDynamicProgramming(int index) {
         HashMap<Integer, Long> map = new HashMap<>();
         if (index < 2) {
             return 1;
@@ -47,5 +47,27 @@ public class FibonacciSequence {
         }
 
         return map.get(index);
+    }
+
+    /**
+     * Iterative version
+     *
+     * Time Complexity O(n)
+     *
+     * Space Complexity O(1)
+     */
+    public long getFibonacciIterative(int n) {
+        if (n < 2) return 1;
+
+        long prevPrev = 1;
+        long prev = 1;
+        long result = 0;
+
+        for (int i = 2; i <= n; i++) {
+            result = prev + prevPrev;
+            prevPrev = prev;
+            prev = result;
+        }
+        return result;
     }
 }
