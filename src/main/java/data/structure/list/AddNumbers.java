@@ -33,20 +33,20 @@ public class AddNumbers {
             second = second.getNext();
         }
 
-        while (first != null) {
-            current.setValue(first.getValue());
-            current.setNext(new ListNode());
-            current = current.getNext();
-            first = first.getNext();
-        }
-
-        while (second != null) {
-            current.setValue(second.getValue());
-            current.setNext(new ListNode());
-            current = current.getNext();
-            second = second.getNext();
-        }
+        current = addRemaining(first, current);
+        addRemaining(second, current);
 
         return result;
+    }
+
+    private ListNode addRemaining(ListNode node, ListNode current) {
+        while (node != null) {
+            current.setValue(node.getValue());
+            current.setNext(new ListNode());
+            current = current.getNext();
+            node = node.getNext();
+        }
+
+        return current;
     }
 }

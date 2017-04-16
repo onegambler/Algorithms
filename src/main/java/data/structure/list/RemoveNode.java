@@ -11,6 +11,11 @@ import util.ListNode;
  */
 public class RemoveNode {
 
+    /**
+     * Complexity O(1)
+     *
+     * It cannot be done with the last node of the list
+     */
     public void removeNode(ListNode node) {
         if (node.getNext() == null) {
             throw new IllegalArgumentException("Cannot remove last node");
