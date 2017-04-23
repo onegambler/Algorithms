@@ -37,6 +37,7 @@ public class BinaryTreeTraversal {
         preOrderTraversal(treeNode.getRightTreeNode());
     }
 
+
     public <T extends Comparable<T>> void postOrderTraversal(TreeNode<T> treeNode) {
         if (treeNode == null) return;
         postOrderTraversal(treeNode.getLeftTreeNode());

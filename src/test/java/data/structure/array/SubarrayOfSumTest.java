@@ -15,4 +15,14 @@ public class SubarrayOfSumTest {
         array = new int [] {1, 4};
         subarrayOfSum.find(array, 0);
     }
+
+    @Test
+    public void shouldFindSubarrayOptimised() {
+        int[] array = {1, 4, 20, 3, 10, 5};
+        subarrayOfSum.findOptimised(array, 33);
+        array = new int [] {1, 4, 0, 0, 3, 10, 5};
+        subarrayOfSum.findOptimised(array, 7);
+        array = new int [] {1, 4};
+        subarrayOfSum.findOptimised(array, 0);
+    }
 }

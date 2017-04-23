@@ -33,7 +33,7 @@ package sorting;
  *
  * <a href="https://www.tutorialspoint.com/data_structures_algorithms/bubble_sort_algorithm.htm">Link</a>
  */
-public class BubbleSort {
+public class  BubbleSort {
 
     public int[] sort(int[] array) {
 
