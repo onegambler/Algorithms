@@ -9,6 +9,9 @@ import java.util.Arrays;
  */
 public class Find2Sum {
 
+    /**
+     * Complexity O(n log n)
+     */
     public boolean exist(int[] num, int target) {
         Arrays.sort(num);
         int min = 0;
@@ -16,7 +19,7 @@ public class Find2Sum {
 
         while (min < max) {
 
-            final int sum = num[min] + num[max];
+            int sum = num[min] + num[max];
             if (sum == target) {
                 return true;
             }
@@ -24,7 +27,7 @@ public class Find2Sum {
             if (sum < target) {
                 min++;
             } else {
-                max++;
+                max--;
             }
         }
 

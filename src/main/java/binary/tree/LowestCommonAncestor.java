@@ -2,8 +2,17 @@ package binary.tree;
 
 import util.TreeNode;
 
+/**
+ * Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
+ *
+ * According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v and
+ * w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).”
+ */
 public class LowestCommonAncestor {
 
+    /**
+     * Time Complexity O(n)
+     */
     public <T extends Comparable<T>> TreeNode<T> lowestCommonAncestorBinaryTree(TreeNode<T> root, TreeNode<T> p, TreeNode<T> q) {
 
         if (root == null) {
@@ -24,6 +33,9 @@ public class LowestCommonAncestor {
         return left == null ? right : left;
     }
 
+    /**
+     * Time Complexity O(log n)
+     */
     public <T extends Comparable<T>> TreeNode<T> lowestCommonAncestorSBT(TreeNode<T> root, TreeNode<T> p, TreeNode<T> q) {
 
         if (root == null) {

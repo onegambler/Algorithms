@@ -5,16 +5,15 @@ import util.TreeNode;
 import static java.lang.Integer.MAX_VALUE;
 import static java.lang.Integer.MIN_VALUE;
 
-/**
- * Write  a  function  to  determine  whether  a  given  binary  tree  of  distinct  integers  is  a  valid
- * binary  search  tree.   Assume  that  each  node  contains  a  pointer  to  its  left  child,  a  pointer
- * to  its  right  child,  and  an  integer,  but  not  a  pointer  to  its  parent.   
- */
 
 public class IntegerBinaryTree {
 
 
     /**
+     * Write  a  function  to  determine  whether  a  given  binary  tree  of  distinct  integers  is  a  valid
+     * binary  search  tree.   Assume  that  each  node  contains  a  pointer  to  its  left  child,  a  pointer
+     * to  its  right  child,  and  an  integer,  but  not  a  pointer  to  its  parent.   
+     *
      * Complexity O(n)
      */
     public boolean isValid(TreeNode<Integer> tree) {
@@ -26,7 +25,7 @@ public class IntegerBinaryTree {
             return true;
         }
 
-        if (treeNode.getValue() < min || treeNode.getValue() > max) {
+        if (treeNode.getValue() <= min || treeNode.getValue() >= max) {
             return false;
         }
 
@@ -34,6 +33,11 @@ public class IntegerBinaryTree {
                 && checkNode(treeNode.getRightTreeNode(), treeNode.getValue(), max);
     }
 
+    /**
+     * Find an element in a binary tree.
+     *
+     * Time Complexity O(log n)
+     */
     public int find(int[] sortedArray, int x) {
         return findRecursive(sortedArray, 0, sortedArray.length - 1, x);
     }

@@ -43,7 +43,7 @@ public class ArrayLeaders {
         Set<Integer> result = new HashSet<>();
         int max = MIN_VALUE;
         for (int i = array.length - 1; i >= 0; i++) {
-                if (array[i] > max) {
+            if (array[i] > max) {
                 max = array[i];
                 result.add(max);
             }
