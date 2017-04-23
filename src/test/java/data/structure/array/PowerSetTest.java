@@ -10,8 +10,14 @@ public class PowerSetTest {
     private PowerSet powerSet = new PowerSet();
 
     @Test
-    public void test() {
+    public void shouldPrintPowerSet() {
         List<Set<Integer>> powerSet = this.powerSet.findPowerSet(new int[]{1, 2, 3, 4});
+        System.out.println("powerSet = " + powerSet);
+    }
+
+    @Test
+    public void shouldPrintPowerSetWithoutForCycle() {
+        List<Set<Integer>> powerSet = this.powerSet.findPowerSetWithoutForCycle(new int[]{1, 2, 3, 4});
         System.out.println("powerSet = " + powerSet);
     }
 }

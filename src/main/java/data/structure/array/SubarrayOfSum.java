@@ -2,7 +2,7 @@ package data.structure.array;
 
 /**
  * Find sub-array with given sum.
- * <p>
+ *
  * Given an unsorted array of non-negative integers, find a continuous sub-array which adds to a given number.
  */
 public class SubarrayOfSum {
