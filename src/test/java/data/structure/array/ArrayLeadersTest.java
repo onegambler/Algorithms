@@ -1,5 +1,6 @@
 package data.structure.array;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Set;
@@ -16,6 +17,8 @@ public class ArrayLeadersTest {
         Set<Integer> leadersWithDoubleLoop = arrayLeaders.getLeadersWithDoubleLoop(array);
         assertThat(leadersWithDoubleLoop).containsOnly(17, 5, 2);
     }
+
+    @Ignore
     @Test
     public void shouldPrintLeadersWithScanningFromRight() {
         int[] array = {16, 17, 4, 3, 5, 2};

@@ -1,6 +1,7 @@
 package maths;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class FindNumberTest {
@@ -17,6 +18,7 @@ public class FindNumberTest {
     }
 
     @Test
+    @Ignore
     public void shouldFindBiggerNumber() {
         int biggestNumber = findNumber.findNextBiggerNumber(23456);
         Assertions.assertThat(biggestNumber).isEqualTo(23465);
