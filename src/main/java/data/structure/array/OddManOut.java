@@ -7,7 +7,8 @@ package data.structure.array;
 public class OddManOut {
 
     /**
-     * Complexity O(n) time and O(1) space
+     * Time Complexity O(n)
+     * Space Complexity O(1)
      */
     public int findOddMan(int[] array) {
         int odd = 0;

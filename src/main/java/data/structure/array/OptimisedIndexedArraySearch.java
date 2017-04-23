@@ -8,25 +8,29 @@ package data.structure.array;
 public class OptimisedIndexedArraySearch {
 
     /**
-     * Overall complexity O(nlogn)
+     * Overall complexity O(logn)
      */
-    public int findIndex(int t, int[] ints) {
-        return find(t, 0, ints.length - 1, ints); //O(logn)
+    public int findIndex(int[] ints, int value) {
+        return find(ints, value, 0, ints.length - 1);
     }
 
-    private int find(int t, int minIndex, int maxIndex, int[] ints) {
-        if (ints[minIndex] >= t) {
+    private int find(int[] ints, int value, int minIndex, int maxIndex) {
+        if (ints[minIndex] >= value) {
             return minIndex;
         }
 
-        if (ints[maxIndex] < t) {
+        if (ints[maxIndex] < value) {
             return -1;
         }
 
-        int splitIndex = (maxIndex - minIndex) / 2 + minIndex;
-        int min = find(t, minIndex, splitIndex, ints);
-        int max = find(t, splitIndex + 1, maxIndex, ints);
+        int splitIndex = (maxIndex + minIndex) / 2;
+        int result;
+        if (ints[splitIndex] >= value) {
+            result = find(ints, value, minIndex, splitIndex);
+        } else {
+            result = find(ints, value, splitIndex + 1, maxIndex);
+        }
 
-        return min == -1 ? max : Math.min(min, max);
+        return result;
     }
 }

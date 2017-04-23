@@ -9,7 +9,7 @@ import static util.Util.swap;
  */
 public class FindMinimumKthElement {
 
-    //Time Complexity O(n*logn)
+    //Time Complexity O(n log n)
     public int findBySorting(int[] array, int k) {
         if (k <= 0 || k >= array.length) {
             throw new IllegalArgumentException("Kth value must be an integer starting from 1");
@@ -34,9 +34,5 @@ public class FindMinimumKthElement {
         }
         System.out.println("array = " + Arrays.toString(array));
         return array[array.length - k];
-    }
-
-    public int findWithHeap(int[] array, int k) {
-        return 3;
     }
 }

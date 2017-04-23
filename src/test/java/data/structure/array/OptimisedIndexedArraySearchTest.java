@@ -10,38 +10,37 @@ public class OptimisedIndexedArraySearchTest {
 
     @Test
     public void whenInputIsSingleElementAndTIsSmallerThenReturnMinusOne() {
-        int index = search.findIndex(5, new int[]{6});
+        int index = search.findIndex(new int[]{6}, 5);
         assertEquals(0, index);
     }
 
     @Test
     public void whenInputIsSingleElementAndTIsBiggerThenReturnZeroIndex() {
-        int index = search.findIndex(5, new int[]{4});
+        int index = search.findIndex(new int[]{4}, 5);
         assertEquals(-1, index);
     }
 
     @Test
     public void findFirstIndexBiggerThanInputT() {
-        int index = search.findIndex(13, new int[]{ 1, 5, 11, 12, 28, 50, 51, 75, 89, 99, 100 });
+        int index = search.findIndex(new int[]{1, 5, 11, 12, 28, 50, 51, 75, 89, 99, 100}, 13);
         assertEquals(4, index);
 
-        index = search.findIndex(0, new int[]{ 1, 5, 11, 12, 28, 50, 51, 75, 89, 99, 100 });
+        index = search.findIndex(new int[]{1, 5, 11, 12, 28, 50, 51, 75, 89, 99, 100}, 0);
         assertEquals(0, index);
 
-        index = search.findIndex(101, new int[]{ 1, 5, 11, 12, 28, 50, 51, 75, 89, 99, 100 });
+        index = search.findIndex(new int[]{1, 5, 11, 12, 28, 50, 51, 75, 89, 99, 100}, 101);
         assertEquals(-1, index);
 
-        index = search.findIndex(51, new int[]{ 1, 5, 11, 12, 28, 50, 51, 75, 89, 99, 100 });
+        index = search.findIndex(new int[]{1, 5, 11, 12, 28, 50, 51, 75, 89, 99, 100}, 51);
         assertEquals(6, index);
 
-        index = search.findIndex(1, new int[]{ 1, 5, 11, 12, 28, 50, 51, 75, 89, 99, 100 });
+        index = search.findIndex(new int[]{1, 5, 11, 12, 28, 50, 51, 75, 89, 99, 100}, 1);
         assertEquals(0, index);
 
-        index = search.findIndex(100, new int[]{ 1, 5, 11, 12, 28, 50, 51, 75, 89, 99, 100 });
+        index = search.findIndex(new int[]{1, 5, 11, 12, 28, 50, 51, 75, 89, 99, 100}, 100);
         assertEquals(10, index);
 
-        index = search.findIndex(77, new int[]{ 1, 5, 11, 12, 28, 50, 51, 75, 89, 99, 100 });
+        index = search.findIndex(new int[]{1, 5, 11, 12, 28, 50, 51, 75, 89, 99, 100}, 77);
         assertEquals(8, index);
-
     }
 }

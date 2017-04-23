@@ -12,10 +12,13 @@ import static java.lang.Math.abs;
  */
 public class Find3SumClosest {
 
+    /**
+     * Time Complexity O(n log n)
+     */
     public int threeSumClosest(int[] num, int target) {
+        Arrays.sort(num);
         int diff = Integer.MAX_VALUE;
         int result = 0;
-        Arrays.sort(num);
         int lastIndex = num.length - 2;
         int j;
         int k;
