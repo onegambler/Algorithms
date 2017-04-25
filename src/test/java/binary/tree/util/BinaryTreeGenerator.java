@@ -20,13 +20,11 @@ public class BinaryTreeGenerator<T extends Comparable<T>> {
             return null;
         }
 
-        int mid = (int) Math.floor((start + end) / 2);
-        TreeNode<T> treeNode = new TreeNode<>();
+        int mid = (start + end) / 2;
+        TreeNode<T> treeNode = new TreeNode<>(values[mid]);
 
-        treeNode.setValue(values[mid]);
 
         treeNode.setLeftTreeNode(createNode(values, start, mid - 1));
-
         treeNode.setRightTreeNode(createNode(values, mid + 1, end));
 
         return treeNode;

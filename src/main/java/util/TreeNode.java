@@ -8,8 +8,8 @@ public class TreeNode<T extends Comparable<T>> {
     public TreeNode() {
     }
 
-    public TreeNode(T t) {
-        this.value = t;
+    public TreeNode(T value) {
+        this.value = value;
     }
 
     public TreeNode<T> getLeftTreeNode() {

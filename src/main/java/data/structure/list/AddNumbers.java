@@ -15,38 +15,28 @@ import util.ListNode;
 public class AddNumbers {
 
     public ListNode sum(ListNode first, ListNode second) {
-        ListNode result = new ListNode();
-        int carry = 0;
-        ListNode current = result;
-        while (first != null && second != null) {
-            int value = first.getValue() + second.getValue() + carry;
-            if (value > 9) {
-                carry = value / 10;
-                value = value % 10;
-            } else {
-                carry = 0;
-            }
-            current.setValue(value);
-            current.setNext(new ListNode());
-            current = current.getNext();
-            first = first.getNext();
-            second = second.getNext();
-        }
-
-        current = addRemaining(first, current);
-        addRemaining(second, current);
-
-        return result;
+        return sumRecursive(first, second, 0);
     }
 
-    private ListNode addRemaining(ListNode node, ListNode current) {
-        while (node != null) {
-            current.setValue(node.getValue());
-            current.setNext(new ListNode());
-            current = current.getNext();
-            node = node.getNext();
-        }
 
-        return current;
+    private ListNode sumRecursive(ListNode first, ListNode second, int carry) {
+        if (first == null && second == null) {
+            return null;
+
+        }
+        ListNode result = new ListNode();
+        int value = carry;
+        if (first != null) {
+            value += first.getValue();
+        }
+        if (second != null) {
+            value += second.getValue();
+
+        }
+        result.setValue(value % 10);
+        ListNode more = sumRecursive(first == null ? null : first.getNext(), second == null ? null : second.getNext(),
+                value > 9 ? 1 : 0);
+        result.setNext(more);
+        return result;
     }
 }
