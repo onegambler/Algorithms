@@ -5,7 +5,7 @@ public class Stack<T> {
     private Node<T> top;
 
     public void push(T value) {
-        Node<T> newTop = new Node<T>(value);
+        Node<T> newTop = new Node<>(value);
         newTop.next = top;
         top = newTop;
     }

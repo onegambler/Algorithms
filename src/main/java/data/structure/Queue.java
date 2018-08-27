@@ -6,7 +6,7 @@ public class Queue<T> {
     private Node<T> tail;
 
     public void enqueue(T value) {
-        Node<T> newNode = new Node<T>(value);
+        Node<T> newNode = new Node<>(value);
         if(tail != null) {
             tail.next = newNode;
         }
